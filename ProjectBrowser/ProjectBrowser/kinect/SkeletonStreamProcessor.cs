@@ -102,12 +102,6 @@ namespace ProjectBrowser
                                 spriteBatch.Draw(Game1.pixel, new Rectangle(Game1.screenWidth / 2 - 75, 30, kinectCounter, 10), Color.Green);
                                 spriteBatch.Draw(box, new Rectangle(Game1.screenWidth / 2 - 75, 30, 150, 10), Color.White);
                             }
-                            
-                            switch (Game1.gameState)
-                            {
-                                case Game1.GameState.overview:
-                                    break;
-                            }
                         }
                     }
                 }

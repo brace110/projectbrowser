@@ -52,7 +52,6 @@ namespace ProjectBrowser
         private ParticleEngine particleEngine;
         public static Boolean particlesWereAdded;
 
-        private hitChecker hitchecker;
         private MouseInput mouseInput;
 
         // Project location & hover vars.
@@ -101,6 +100,9 @@ namespace ProjectBrowser
 
             // Makes the mouse visible.
             this.IsMouseVisible = true;
+
+            // Fullscreen.
+            graphics.IsFullScreen = true;
         }
 
         /// <summary>
@@ -139,9 +141,6 @@ namespace ProjectBrowser
             // Load in the Particle Engine.
             particleEngine = new ParticleEngine(this.Content);
 
-            // Hitchecker is used to check kinect and mouse at the same time.
-            hitchecker = new hitChecker(particleEngine);
-
             // Mouse input.
             mouseInput = new MouseInput();
 
@@ -158,7 +157,6 @@ namespace ProjectBrowser
             foreach (KeyValuePair<Int32, Project> entry in projects)
             {
                 // Load in the texture.
-
                 if (projectsTextures.ContainsKey(entry.Value.textureName))
                 {
                     projects[entry.Key].texture = projectsTextures[entry.Value.textureName];
