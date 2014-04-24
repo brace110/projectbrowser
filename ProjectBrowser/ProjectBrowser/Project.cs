@@ -10,8 +10,8 @@ namespace ProjectBrowser
     class Project
     {
         public DateTime date { get; set; }
-        public string description { get; set; }
-        public string tools { get; set; }
+        public String description { get; set; }
+        public String tools { get; set; }
         public String name { get; set; }
         public Int32 id { get; set; }
         public String textureName { get; set; }
@@ -20,6 +20,10 @@ namespace ProjectBrowser
         public Rectangle detailsPlace { get; set; }
         public Rectangle place { get; set; }
         public Boolean hover { get; set; }
+        public Int32 viewCount { get; set; }
+        public String naam { get; set; }
+        public String klas { get; set; }
+        public String opleiding { get; set; }
 
         public Project(Int32 _id, String _name, String _textureName, DateTime _date, String _description, String _tools, Int32 _viewCount, String _naam, String _klas, String _opleiding)
         {
@@ -41,13 +45,5 @@ namespace ProjectBrowser
             locationRectangle = new Rectangle(0, 0, 150, 100);
             detailsPlace = new Rectangle(250, 120, 150, 100);
         }
-
-        public int viewCount { get; set; }
-
-        public string naam { get; set; }
-
-        public string klas { get; set; }
-
-        public string opleiding { get; set; }
     }
 }
