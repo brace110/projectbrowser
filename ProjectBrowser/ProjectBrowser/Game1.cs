@@ -192,7 +192,7 @@ namespace ProjectBrowser
             displayProjects = new Dictionary<int, Project>();
             
             // Init the starting location for the projects (remember they are being drawn from the center).
-            xPos = 175;
+            xPos = 175; 
             yPos = 110;
 
             Int32 i = 1;
