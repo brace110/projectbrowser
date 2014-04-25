@@ -27,3 +27,4 @@ C:\Users\Tarik\Dropbox\Projects\ProjectBrowser\ProjectBrowser\ProjectBrowser\bin
 C:\Users\Tarik\Dropbox\Projects\ProjectBrowser\ProjectBrowser\ProjectBrowser\bin\x86\Debug\Content\projects\pixelmoon.xnb
 C:\Users\Tarik\Dropbox\Projects\ProjectBrowser\ProjectBrowser\ProjectBrowser\bin\x86\Debug\Content\projects\no_image.xnb
 C:\Users\Tarik\Dropbox\Projects\ProjectBrowser\ProjectBrowser\ProjectBrowser\bin\x86\Debug\Content\projects\piano_spel.xnb
+C:\Users\Tarik\Dropbox\Projects\ProjectBrowser\ProjectBrowser\ProjectBrowser\bin\x86\Debug\Content\font2.xnb

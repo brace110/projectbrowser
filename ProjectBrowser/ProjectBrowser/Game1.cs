@@ -85,6 +85,7 @@ namespace ProjectBrowser
         private Dictionary<Int32, Project> displayProjects = new Dictionary<int, Project>();
         private int startProject = 1;
         public static Texture2D pixel;
+        private SpriteFont font2;
 
         public Game1()
         {
@@ -183,6 +184,7 @@ namespace ProjectBrowser
 
             // Spritefont.
             font = Content.Load<SpriteFont>("font");
+            font2 = Content.Load<SpriteFont>("font2");
         }
 
         private void initProjects()
@@ -297,8 +299,6 @@ namespace ProjectBrowser
                                     // Make sure it doesn't reset.
                                     hit = true;
 
-                                    Console.WriteLine(kinectCounter);
-
                                     // If this has been going for 2.5 seconds.
                                     if (kinectCounter > 150)
                                     {
@@ -385,10 +385,14 @@ namespace ProjectBrowser
                             // Go the details.
                             detailsProject = projects[hoveringProject.id];
 
+                            // Write a view to this project.
+                            db.writeView(detailsProject);
+
+                            // Get latest viewcount from db.
+                            detailsProject.viewCount = db.updateView(detailsProject);
+
                             // Change gameState.
                             gameState = GameState.detail;
-
-                            db.writeView(detailsProject);
 
                             // Place it on the last known mouse location.
                             // entry.Value.locationRectangle = new Rectangle(mouseState[0].X - (entry.Value.locationRectangle.Width / 2), mouseState[0].Y - (entry.Value.locationRectangle.Height / 2), entry.Value.locationRectangle.Width, entry.Value.locationRectangle.Height);
@@ -484,7 +488,7 @@ namespace ProjectBrowser
                     if (hovering)
                     {
                         spriteBatch.Draw(gameTextures["drophere"], drophereRectangle, Color.White);
-                        spriteBatch.DrawString(font, "Move both hands here", new Vector2(screenWidth / 2 - (screenWidth / 8), screenHeight / 6), Color.White);
+                        spriteBatch.DrawString(font2, "Move both hands here", new Vector2(screenWidth / 2 - (screenWidth / 8), screenHeight / 6), Color.White);
                     }
                     else
                     {
@@ -523,7 +527,7 @@ namespace ProjectBrowser
         {
             spriteBatch.Draw(detailsProject.texture, detailsProject.detailsPlace, Color.White);
 
-            spriteBatch.DrawString(font, parseText(detailsProject.description, 350), new Vector2(550, 150), Color.White);
+            spriteBatch.DrawString(font2, parseText(detailsProject.description, 350), new Vector2(550, 150), Color.White);
 
             spriteBatch.DrawString(font, "Datum: " + detailsProject.date.Date, new Vector2(125, 250), Color.White);  
 

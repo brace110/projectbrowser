@@ -62,6 +62,42 @@ namespace ProjectBrowser
             //Console.ReadLine();
         }
 
+        public Int32 updateView(Project project)
+        {
+            Int32 viewCount = project.viewCount;
+            
+            try
+            {
+                conn.Open();
+
+                String stm = "SELECT viewcount FROM projecten WHERE ID = ?projectID";
+                MySqlCommand cmd = new MySqlCommand(stm, conn);
+
+                cmd.Parameters.AddWithValue("?projectID", project.id);
+
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    viewCount = rdr.GetInt32(0);
+                }
+            }
+            finally
+            {
+                if (rdr != null)
+                {
+                    rdr.Close();
+                }
+
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+
+            return viewCount;
+        }
+
         public Dictionary<Int32, Project> returnProjects()
         {
             Dictionary<Int32, Project> projects = new Dictionary<Int32, Project>();

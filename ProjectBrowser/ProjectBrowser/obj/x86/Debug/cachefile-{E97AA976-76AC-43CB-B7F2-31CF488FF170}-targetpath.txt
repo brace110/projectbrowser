@@ -20,3 +20,4 @@ Content\projects\fencing.xnb
 Content\projects\pixelmoon.xnb
 Content\projects\no_image.xnb
 Content\projects\piano_spel.xnb
+Content\font2.xnb
